@@ -57,3 +57,18 @@
             addm: "5463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a9555463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a9555463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a9555463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a955"
         }]
     };
+
+    //"getfullscratchpad"
+    var getfullscratchpad_arg = {
+        id: "some_miner_id1"
+    };
+
+    var getfullscratchpad_rsp = {
+        status: 'OK',
+        hi: {
+            height: 1111,
+            block_id: "5463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a955"
+        },
+        scratchpad_hex: "463e60765681e1e4fccd53735265520468cc8c......a very long hex string(megabytes)...e88aaa88d726478160a955"
+    };
+
