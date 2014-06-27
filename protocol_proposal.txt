@@ -48,6 +48,10 @@
         target: "",
         difficulty: "32342342312123",
         status: 'OK',
+        prev_hi: {
+            height: 1111,
+            block_id: "5463e60765681e1e4fccd53735265520468cc8cab8e88aaa88d726478160a955"
+        },
         addms: [{
             hi: {
                 height: 1111,
