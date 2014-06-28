@@ -50,7 +50,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 ### Community / Support
 
-* [CryptoNote Forum](https://forum.cryptonote.org/)
+* [Boolberry Forum](http://boolberry.com/forum/)
 * [Boolberry Github](https://github.com/cryptozoidberg/boolberry)
 * IRC (freenode)
   * Support / general discussion join #boolberry: https://webchat.freenode.net/?channels=#boolberry
@@ -78,7 +78,7 @@ you are using - a good place to start with redis is [data persistence](http://re
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/LucasJones/node-boolberry-pool.git pool
+git clone https://github.com/cryptozoidberg/node-boolberry-pool.git pool
 cd pool
 npm update
 ```
@@ -124,7 +124,7 @@ Explanation for each field:
     "easyminerDownload": "https://github.com/zone117x/cryptonote-easy-miner/releases/",
 
     /* Download link to simplewallet for your configured coin. */
-    "simplewalletDownload": "http://bit.ly/monero-starter-pack",
+    "simplewalletDownload": "http://boolberry.com/downloads.html",
 
     /* Used for front-end block links. For other coins it can be changed, for example with
        Bytecoin you can use "https://minergate.com/blockchain/bcn/block/". */
@@ -221,13 +221,13 @@ Explanation for each field:
     /* Coin daemon connection details. */
     "daemon": {
         "host": "127.0.0.1",
-        "port": 18081
+        "port": 10102
     },
 
     /* Wallet daemon connection details. */
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8082
+        "port": 10103
     },
 
     /* Redis connection into. */
