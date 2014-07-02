@@ -16,39 +16,37 @@
 
     "cryptonatorWidget": "num=2&base_0=Boolberry%20(BBR)&target_0=Bitcoin%20(BTC)&base_1=Boolberry%20(BBR)&target_1=US%20Dollar%20(USD)",
 
-    "easyminerDownload": "http://boolberry.com/downloads.html",
+    "easyminerDownload": "https://github.com/zone117x/cryptonote-easy-miner/releases/",
 
-    "simplewalletDownload": "http://boolberry.com/downloads.html",
+    "simplewalletDownload": "http://bit.ly/monero-starter-pack",
 
-    "blockchainExplorer": "http://bbr.cryptostats.org/block/",
+    "blockchainExplorer": "",
 
     "poolServer": {
         "enabled": true,
         "clusterForks": "auto",
         "poolAddress": "1L1ZPC9XodC6g5BX8j8m3vcdkXPiZrVF7RcERWE879coQDWiztUbkkVZ86o43P27Udb3qxL4B41gbaGpvj3nS7DgFZauAZE",
         "blockRefreshInterval": 1000,
-        "blockForceResetInterval": 200000,
         "minerTimeout": 900,
         "ports": [
             {
-                "port": 3333,
-                "protocol": "tcp",
-                "difficulty": 400000,
-                "desc": "Mid range CPUs"
-            },
-            {
                 "port": 5555,
                 "protocol": "tcp",
-                "difficulty": 400000,
+                "difficulty": 10000,
                 "desc": "Mid range CPUs"
             },
             {
                 "port": 7777,
                 "protocol": "tcp",
-                "difficulty": 800000,
+                "difficulty": 500000,
                 "desc": "High end CPUs"
+            },
+            {
+                "port": 1111,
+                "protocol": "http",
+                "difficulty": 500000,
+                "desc": "Old protocol"
             }
-            
         ],
         "varDiff": {
             "minDiff": 50000,
