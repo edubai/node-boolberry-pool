@@ -27,23 +27,24 @@
         "clusterForks": "auto",
         "poolAddress": "1L1ZPC9XodC6g5BX8j8m3vcdkXPiZrVF7RcERWE879coQDWiztUbkkVZ86o43P27Udb3qxL4B41gbaGpvj3nS7DgFZauAZE",
         "blockRefreshInterval": 1000,
+        "blockForceResetInterval": 200000,
         "minerTimeout": 900,
         "ports": [
             {
                 "port": 3333,
                 "protocol": "tcp",
-                "difficulty": 100000,
-                "desc": "Stratum Port"
+                "difficulty": 400000,
+                "desc": "Mid range CPUs"
             },
             {
                 "port": 5555,
-                "protocol": "http",
+                "protocol": "tcp",
                 "difficulty": 400000,
                 "desc": "Mid range CPUs"
             },
             {
                 "port": 7777,
-                "protocol": "http",
+                "protocol": "tcp",
                 "difficulty": 800000,
                 "desc": "High end CPUs"
             }
@@ -58,7 +59,7 @@
             "maxJump": 20000
         },
         "shareTrust": {
-            "enabled": true,
+            "enabled": false,
             "min": 10,
             "stepDown": 3,
             "threshold": 10,
