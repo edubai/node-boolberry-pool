@@ -142,7 +142,13 @@ Explanation for each field:
 
         /* Address where block rewards go, and miner payments come from. */
         "poolAddress": "1L1ZPC9XodC6g5BX8j8m3vcdkXPiZrVF7RcERWE879coQDWiztUbkkVZ86o43P27Udb3qxL4B41gbaGpvj3nS7DgFZauAZE"
-
+        
+        /* Path to local scratchpad file that will be shared with http server */
+        "scratchpadFilePath": "/usr/share/nginx/html/scratchpad.bin",
+        
+        /* Local scratchpad file update interval, milliseconds (4 hours by default) */
+        "scratchpadFileUpdateInterval": 14400000, 
+        
         /* Poll RPC daemons for new blocks every this many milliseconds. */
         "blockRefreshInterval": 1000,
 
@@ -237,19 +243,19 @@ Explanation for each field:
     }
 }
 ```
+#### 3) Configure your pool's scratchpad
 
-#### 3) [Optional] Configure cryptonote-easy-miner for your pool
-Your miners that are Windows users can use [cryptonote-easy-miner](https://github.com/zone117x/cryptonote-easy-miner)
-which will automatically generate their wallet address and stratup multiple threads of simpleminer. You can download
-it and edit the `config.ini` file to point to your own pool.
-Inside the `easyminer` folder, edit `config.init` to point to your pool details
-```ini
-pool_host=example.com
-pool_port=5555
-```
+For normal work minerd need to be pointed to inital scratchpad file. Configure your pool with target folder/scratchpad.bin file and time interval for updating scratchpad file, and pool via daemon rpc will be regularly update shared scratchpad file. 
 
-Rezip and upload to your server or a file host. Then change the `easyminerDownload` link in your `config.json` file to
-point to your zip file.
+```javascript
+/* Path to local scratchpad file that will be shared with http server */
+"scratchpadFilePath": "/usr/share/nginx/html/scratchpad.bin",
+
+/* Local scratchpad file update interval, milliseconds (4 hours by default) */
+"scratchpadFileUpdateInterval": 14400000, 
+```     
+scratchpadFilePath should point to file that is shared by your http server, and you have to provide a link to this file in your mining instructions (mining command-line params)
+
 
 #### 4) Start the pool
 
@@ -281,18 +287,6 @@ the Node.js modules, and any config files that may have been changed.
 * Run `npm update` to force updating/reinstalling of the dependencies.
 * Compare your `config.json` to the latest example ones in this repo or the ones in the setup instructions where each config field is explained. You may need to modify or add any new changes.
 
-### Setting up Testnet
-
-No cryptonote based coins have a testnet mode (yet) but you can effectively create a testnet with the following steps:
-
-* Open `/src/p2p/net_node.inl` and remove lines with `ADD_HARDCODED_SEED_NODE` to prevent it from connecting to mainnet (Monero example: http://git.io/0a12_Q)
-* Build the coin from source
-* You now need to run two instance of the daemon and connect them to each other (without a connection to another instance the daemon will not accept RPC requests)
-  * Run first instance with `./coind --p2p-bind-port 28080 --allow-local-ip`
-  * Run second instance with `./coind --p2p-bind-port 5011 --rpc-bind-port 5010 --add-peer 0.0.0.0:28080 --allow-local-ip`
-* You should now have a local testnet setup. The ports can be changes as long as the second instance is pointed to the first instance, obviously
-
-*Credit to surfer43 for these instructions*
 
 
 ### JSON-RPC Commands from CLI
@@ -321,6 +315,9 @@ Donations
 * BBR: `1KfzJfoA2pbB6J2ee2JG7wYSqwKtdoqs97pVMdB471FXArr1ce52Wm1BCWdAv9JAxZTa7wcUkq2s695Nmn59HgZ6VVnSjfp`
 * XMR/MRO: `41id8jHp2UiVuSKJcq9D78CQp9Ku2ecqvWL76kUCMDxzA5Q4rAbTHJSijWC33aPjMD92Dbs8XBG3yU3neWGFfmB57WNkZxb`
 * BTC: `1LBvA9X7KToPPKJFL8E5qdePhUoYCJiEfW`
+* BBR: `"@zoidberg`
+
+
 
 Credits
 ===
@@ -329,6 +326,8 @@ Credits
 * [surfer43](//github.com/iamasupernova) - Did lots of testing during development to help figure out bugs and get them fixed
 * [Wolf0](https://bitcointalk.org/index.php?action=profile;u=80740) - Helped try to deobfuscate some of the daemon code for getting a bug fixed
 * [Tacotime](https://bitcointalk.org/index.php?action=profile;u=19270) - helping with figuring out certain problems and lead the bounty for this project's creation
+* [crypto_zoidberg](https://bitcointalk.org/index.php?action=profile;u=170073) - supporting Boolberry 
+
 
 License
 -------
