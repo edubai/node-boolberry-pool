@@ -1,3 +1,4 @@
+//severity, system, subsystem, component, text
 var fs = require('fs');
 var cluster = require('cluster');
 
